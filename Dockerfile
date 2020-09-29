@@ -1,8 +1,11 @@
-FROM golang:alpine
-COPY helloworld.go /
-RUN go build -o /helloworld /helloworld.go
+FROM golang:alpine AS builder
 
-# Copy the exe into a smaller base image
-FROM alpine
-COPY --from=0 /helloworld /helloworld
-CMD /helloworld
+WORKDIR $GOPATH/src/
+COPY app.go .
+RUN go build -o /go/app
+
+FROM scratch
+
+COPY --from=builder /go/app /go/app
+
+CMD ["/go/app"]
