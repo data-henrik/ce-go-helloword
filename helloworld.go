@@ -116,7 +116,7 @@ func main() {
 
 		if len(body) == 0 {
 			w.Header().Add("Content-Type", "text/plain")
-			fmt.Fprintf(w, `%s: data-henrik`, msg)
+			fmt.Fprintf(w, "%s:\n", msg)
 
 			fmt.Fprintf(w, "Some Env Vars:\n")
 			fmt.Fprintf(w, "--------------\n")
