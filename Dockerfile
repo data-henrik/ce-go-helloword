@@ -1,7 +1,7 @@
 FROM golang:alpine AS builder
 
-WORKDIR $GOPATH/src/
-COPY app.go .
+#WORKDIR $GOPATH/
+COPY helloworld.go .
 RUN go build -o /go/app
 
 FROM scratch
