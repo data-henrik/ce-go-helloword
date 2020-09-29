@@ -116,17 +116,8 @@ func main() {
 
 		if len(body) == 0 {
 			w.Header().Add("Content-Type", "text/plain")
-			// http://patorjk.com/software/taag/#p=display&f=Graceful&t=Code%0AEngine
-			fmt.Fprintf(w, `%s:
-			_       _          _                     _ _    
-			| |     | |        | |                   (_) |   
-		  __| | __ _| |_ __ _  | |__   ___ _ __  _ __ _| | __
-		 / _` |/ _` | __/ _` | | '_ \ / _ \ '_ \| '__| | |/ /
-		| (_| | (_| | || (_| | | | | |  __/ | | | |  | |   < 
-		 \__,_|\__,_|\__\__,_| |_| |_|\___|_| |_|_|  |_|_|\_\
-															 
-															 
-`, msg)
+			fmt.Fprintf(w, `%s: data-henrik`, msg)
+
 			fmt.Fprintf(w, "Some Env Vars:\n")
 			fmt.Fprintf(w, "--------------\n")
 			for _, env := range envs {
